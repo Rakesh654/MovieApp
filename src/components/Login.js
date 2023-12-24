@@ -7,6 +7,7 @@ import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { BACKGROUND_URL } from '../utils/constants';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -64,7 +65,7 @@ const Login = () => {
     <div>
       <Header/>
       <div>
-      <img className='absolute' alt='loading' src='https://assets.nflxext.com/ffe/siteui/vlv3/ca6a7616-0acb-4bc5-be25-c4deef0419a7/c5af601a-6657-4531-8f82-22e629a3795e/IN-en-20231211-popsignuptwoweeks-perspective_alpha_website_large.jpg'></img>
+      <img className='absolute' alt='loading' src={BACKGROUND_URL}></img>
       </div>
       <div className='absolute bg-black bg-opacity-80 mx-auto right-0 left-0 w-3/12 pb-10 my-[15%] rounded-lg'>
         <h1 className='font-bold text-white p-2 mx-8 mt-10 text-3xl'>Sign {signUppage ? "Up" : "In"}</h1>
