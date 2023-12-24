@@ -10,7 +10,6 @@ import { addUser } from '../utils/userSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [signUppage, setsignUppage] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
