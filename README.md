@@ -14,4 +14,8 @@
 - Create SignUp in Firebase App
 - Added redux 
 - Created signout feature
-#Update Profile api
+- Update Profile api
+- Register to tmdb app and get the token 
+- fetch the now playing movies by making the get call
+- use the get movie api
+- created custom hook 
