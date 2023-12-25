@@ -1,11 +1,23 @@
-import React from 'react'
-import { BACKGROUND_URL } from '../utils/constants'
+import React, { useRef } from 'react'
+import { API_OPTIONS, BACKGROUND_URL } from '../utils/constants'
 import { lang } from '../utils/languageConstants'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addSearchMovie } from '../utils/moviesSlice';
+import MovieList from './MovieList';
 
 function GptSearch() {
     const langkey = useSelector(store => store.lang.lang).toLowerCase();
     const key = langkey === "english" ? "en" : langkey;
+    const searchItem = useRef();
+    const dispatch = useDispatch();
+    const searchMovies = useSelector(store => store.movies?.searchMovie);
+    const allSearchMovies = searchMovies != null ? searchMovies.filter((e) => e.poster_path != null) : null;
+
+    const searchMovie = async () => {
+        const searchMovie =  await fetch('https://api.themoviedb.org/3/search/movie?query=' + searchItem.current.value +'&include_adult=false&language=en-US&page=1', API_OPTIONS);
+        const json = await searchMovie.json();
+        dispatch(addSearchMovie(json.results))
+    }
   return (
     <div>
     <div>
@@ -14,12 +26,16 @@ function GptSearch() {
     <div className='pt-[10%] flex justify-center'>
        
         <div className='p-5 bg-black rounded-lg'>
-        <form className='bg-black w-12/12 '>
-            <input type='text' className='border border-black p-3 w-96' placeholder={lang[key].SEARCH_PLACEHOLDER}></input>
-            <button className='bg-red-700 text-white mx-10 p-4 rounded-md'>{lang[key].SEARCH}</button>
+        <form onSubmit={(e) => e.preventDefault()} className='bg-black w-12/12 '>
+            <input type='text' ref={searchItem} className='border border-black p-3 w-96' placeholder={lang[key].SEARCH_PLACEHOLDER}></input>
+            <button className='bg-red-700 text-white mx-10 p-4 rounded-md' onClick={(searchMovie)}>{lang[key].SEARCH}</button>
         </form>
         </div>
     </div>
+    {allSearchMovies !== null  || (allSearchMovies !== null && allSearchMovies.length !== 0)  ?
+    <div className='pt-[14%] bg-gradient-to-br from-black'>
+    <MovieList title={searchItem?.current.value} movies={allSearchMovies}/>
+    </div> : ""}
     </div>
   )
 }

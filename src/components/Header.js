@@ -56,7 +56,7 @@ const Header = () => {
             {LANGUAGE.map(lang => (<option key={lang.identifier} value={lang.value}>{lang.value}</option>))}
            </select> : ""}
            <img className='w-12 h-12' src={USER_IMAGE_URL} alt='loading...'></img> 
-           <button className='w-36 ml-1 opacity-100 rounded-md h-12 bg-orange-900 font-bold text-white' onClick={handleToggle}> {!gpt ? "GPT Search" : "Home Page"}</button>
+           <button className='w-36 ml-1 opacity-100 rounded-md h-12 bg-orange-900 font-bold text-white' onClick={handleToggle}> {!gpt ? "GPT Search" : "Home"}</button>
           <button className='w-36 ml-1 opacity-100 rounded-md h-12 bg-red-700 font-bold text-white' onClick={logOut}>Sign Out</button>
       </div> : ""}
     </div>

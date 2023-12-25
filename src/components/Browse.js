@@ -8,6 +8,7 @@ import useUpcoming from '../hooks/useUpcoming';
 import useTopRated from '../hooks/useTopRated';
 import GptSearch from './GptSearch';
 import { useSelector } from 'react-redux';
+
 const Browse = () => {
   const toggleView = useSelector((store) => store.gpt.toggleview);
   useNowPlayingMovie();
