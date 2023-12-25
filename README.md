@@ -19,3 +19,9 @@
 - fetch the now playing movies by making the get call
 - use the get movie api
 - created custom hook 
+- multi language
+- search
+- memoization
+- tmbd movie suggestion
+- added .env file
+- Made site responsive

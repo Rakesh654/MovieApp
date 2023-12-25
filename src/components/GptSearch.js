@@ -21,21 +21,21 @@ function GptSearch() {
   return (
     <div>
     <div>
-    <img className='absolute -z-10' alt='loading' src={BACKGROUND_URL}></img>
+    <img className='h-screen w-screen object-cover absolute -z-10' alt='loading' src={BACKGROUND_URL}></img>
     </div>
-    <div className='pt-[10%] flex justify-center'>
-       
-        <div className='p-5 bg-black rounded-lg'>
-        <form onSubmit={(e) => e.preventDefault()} className='bg-black w-12/12 '>
-            <input type='text' ref={searchItem} className='border border-black p-3 w-96' placeholder={lang[key].SEARCH_PLACEHOLDER}></input>
+    <div className='pt-[30%] md:pt-[10%] flex justify-center'>
+       <div className='p-5 bg-black rounded-lg'>
+        <form onSubmit={(e) => e.preventDefault()} className='bg-black w-screen md:w-full '>
+            <input type='text' ref={searchItem} className='border border-black p-3 w-80 md:w-96' placeholder={lang[key].SEARCH_PLACEHOLDER}></input>
             <button className='bg-red-700 text-white mx-10 p-4 rounded-md' onClick={(searchMovie)}>{lang[key].SEARCH}</button>
         </form>
         </div>
     </div>
     {allSearchMovies !== null  || (allSearchMovies !== null && allSearchMovies.length !== 0)  ?
-    <div className='pt-[14%] bg-gradient-to-br from-black'>
-    <MovieList title={searchItem?.current.value} movies={allSearchMovies}/>
-    </div> : ""}
+    <div className='pt-[40%] md:pt-[14%] bg-gradient-to-br from-black'>
+    <MovieList title={searchItem?.current?.value.toUpperCase()} movies={allSearchMovies}/>
+    </div> 
+    : ""}
     </div>
   )
 }

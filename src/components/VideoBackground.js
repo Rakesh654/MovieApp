@@ -11,8 +11,8 @@ const VideoBackground = ({movieid}) => {
   const trailer = trailers.length > 0 ? trailers[0] : movieVideo[0];
   const {key} = trailer;
   return (
-    <div className=''>
-        <iframe className='w-screen aspect-video' src={"https://www.youtube.com/embed/" + key +"?&autoplay=1&mute=1"} title="The Hunger Games: The Ballad of Songbirds &amp; Snakes (2023) Official Trailer 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+    <div>
+        <iframe className='w-screen aspect-video' src={"https://www.youtube.com/embed/" + key +"?&autoplay=1&mute=1"} title="The Hunger Games: The Ballad of Songbirds &amp; Snakes (2023) Official Trailer 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
     </div>
   )
 }

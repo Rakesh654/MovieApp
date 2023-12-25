@@ -47,11 +47,11 @@ const Header = () => {
   }
 
   return (
-    <div className='absolute  bg-gradient-to-b from-black z-10 flex justify-between'>
-        <div className='w-9/12'>
-            <img alt='loading..' className='w-2/12'  src={LOGO_URL}></img>
+    <div className='absolute w-screen bg-gradient-to-b from-black  z-10 flex flex-col justify-center bg-black md:bg-transparent  md:flex-row md:justify-between'>
+        <div className='flex justify-center'>
+            <img alt='loading..' className='w-44'  src={LOGO_URL}></img>
         </div>
-     {user?.email != null ? <div className='flex p-2'>
+     {user?.email != null ? <div className='w-55 flex p-2 justify-center'>
           {gpt ? <select className='bg-gray-700 h-12 mr-2 rounded-md text-white' onChange={(e) => dispatch(changeLanguage(e.target.value))} > 
             {LANGUAGE.map(lang => (<option key={lang.identifier} value={lang.value}>{lang.value}</option>))}
            </select> : ""}

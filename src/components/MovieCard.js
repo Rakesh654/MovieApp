@@ -3,7 +3,7 @@ import { IMAGE_BASE_URL } from '../utils/constants'
 
 function MovieCard({posterPath}) {
   return (
-    <div className='w-56 p-2 mb-60'>
+    <div className='w-40 md:w-56 p-2 mb-60'>
         <img alt='Movie name' src={IMAGE_BASE_URL+posterPath}></img>
     </div>
   )
