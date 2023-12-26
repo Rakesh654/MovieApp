@@ -32,7 +32,7 @@ function GptSearch() {
         </div>
     </div>
     {allSearchMovies !== null  || (allSearchMovies !== null && allSearchMovies.length !== 0)  ?
-    <div className='pt-[40%] md:pt-[14%] bg-gradient-to-br from-black'>
+    <div className='pt-[60%] md:pt-[14%] bg-gradient-to-br from-black'>
     <MovieList title={searchItem?.current?.value.toUpperCase()} movies={allSearchMovies}/>
     </div> 
     : ""}
